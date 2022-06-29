@@ -19,6 +19,6 @@ class ShopProduct
     }
 }
 
-$product1 = new ShopProduct('Test', 'arg2', 'arg3', 5);
+$product1 = new ShopProduct('arag1111111111111', 'arg2', 'arg3', 5);
 
 print "Автор: {$product1->getProducer()}";
