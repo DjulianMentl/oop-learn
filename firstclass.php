@@ -19,8 +19,8 @@ class ShopProduct
     }
 }
 
-$product1 = new ShopProduct();
-$product1->producerMainName = "Рындя";
-$product1->producerFirstName = "Евгений";
+$product1 = new ShopProduct('Test', 'arg2', 'arg3', 5);
+//$product1->producerMainName = "Рындя";
+//$product1->producerFirstName = "Евгений";
 
 print "Автор: {$product1->getProducer()}";
