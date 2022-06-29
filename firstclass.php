@@ -1,13 +1,19 @@
 <?php
 
+// отвечает за хранение данных о товаре
 class ShopProduct
 {
-    public function __construct(
-        public $title,
-        public $producerMainName,
-        public $producerFirstName,
-        public $price
-    ) {
+    public $title;
+    public $producerMainName;
+    public $producerFirstName;
+    public $price = 0;
+
+    public function __construct(string $title, string $firstName, string $mainName, float $price)
+    {
+        $this->title = $title;
+        $this->producerFirstName = $firstName;
+        $this->producerMainName = $mainName;
+        $this->price = $price;
     }
 
     /**
@@ -19,5 +25,24 @@ class ShopProduct
     }
 }
 
-$product1 = new ShopProduct('arg1', 'arg2', 'arg3', 4);
-print "Автор: {$product1->getProducer()}";
+//отвечает за вывод данных о товаре
+class ShopProductWriter
+{
+    public function write(ShopProduct $shopProduct)
+    {
+        $str = $shopProduct->title . ": "
+            . $shopProduct->getProducer()
+            . " (" . $shopProduct->price . ") \n";
+        print $str;
+    }
+}
+
+class Wrong
+{
+
+}
+
+$product1 = new ShopProduct('Собачье сердце', 'Михаил', 'Булгаков', '21');
+//print "Автор: {$product1->getProducer()}";
+$writer = new ShopProductWriter();
+$writer->write($product1);
